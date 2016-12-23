@@ -1,7 +1,8 @@
 import requests
 import feedparser
 
-SOURCES = ['http://feeds.feedburner.com/TheHackersNews']
+SOURCES = ['http://feeds.feedburner.com/TheHackersNews',
+           'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml']
 
 def get_headlines():
     headlines = []
