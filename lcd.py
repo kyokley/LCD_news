@@ -11,6 +11,9 @@ class LCD(object):
     def write(self, message):
         if len(message) <= ROW_LENGTH:
             LCD1602.write(0, 0, message)
+        elif len(message) <= NUM_ROWS * ROW_LENGTH:
+            for i in xrange(NUM_ROWS):
+                LCD1602.write(0, i, message[i * ROW_LENGTH:(i + 1) * ROW_LENGTH])
 
     def clear(self):
         LCD1602.clear()
