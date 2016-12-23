@@ -12,7 +12,7 @@ def main():
 
             for headline in headlines:
                 print(headline)
-                lcd.write(headline)
+                lcd.write('     {}'.format(headline))
                 time.sleep(3)
     except KeyboardInterrupt:
         lcd.clear()

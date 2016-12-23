@@ -14,6 +14,6 @@ def get_headlines():
 
         feed_data = feedparser.parse(data)
         headlines.extend([x.get('title_detail', {})
-                           .get('value', {})
+                           .get('value', '')
                            for x in feed_data.entries])
     return headlines
