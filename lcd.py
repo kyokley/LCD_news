@@ -1,3 +1,4 @@
+import time
 import LCD1602
 
 ROW_LENGTH = 16
@@ -14,6 +15,12 @@ class LCD(object):
         elif len(message) <= NUM_ROWS * ROW_LENGTH:
             for i in xrange(NUM_ROWS):
                 LCD1602.write(0, i, message[i * ROW_LENGTH:(i + 1) * ROW_LENGTH])
+        else:
+            for i in xrange(len(message) - NUM_ROWS * ROW_LENGTH):
+                self.clear()
+                self.write(message[i:i + NUM_ROWS * ROW_LENGTH])
+                time.sleep(.1)
+
 
     def clear(self):
         LCD1602.clear()
