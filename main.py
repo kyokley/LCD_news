@@ -1,10 +1,19 @@
 import time
+import random
 from lcd import LCD
+from news import get_headlines
 
 def main():
     try:
         lcd = LCD()
-        lcd.write('My name is Ozymandias, king of kings: Look on my works, ye Mighty, and despair!')
+        while True:
+            headlines = get_headlines()
+            random.shuffle(headlines)
+
+            for headline in headlines:
+                print(headline)
+                lcd.write(headline)
+                time.sleep(3)
     except KeyboardInterrupt:
         lcd.clear()
 
