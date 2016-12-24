@@ -1,3 +1,4 @@
 pdbpp
 bpython
 requests
+unidecode

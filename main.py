@@ -12,6 +12,7 @@ def main():
 
             headlines.append('')
             all_headlines = BLANK_MESSAGE.join(headlines)
+            print('\n'.join(headlines))
             lcd.write(all_headlines)
     except KeyboardInterrupt:
         lcd.clear()

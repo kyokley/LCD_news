@@ -1,5 +1,6 @@
 import requests
 import feedparser
+from unidecode import unidecode
 
 SOURCES = ['http://feeds.feedburner.com/TheHackersNews',
            'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml']
@@ -13,8 +14,8 @@ def get_headlines():
             continue
 
         feed_data = feedparser.parse(data)
-        headlines.extend([x.get('title_detail', {})
-                           .get('value', '')
+        headlines.extend([unidecode(x.get('title_detail', {})
+                           .get('value', ''))
                            .encode('ascii', 'ignore')
                            for x in feed_data.entries])
     return headlines
