@@ -1,6 +1,6 @@
 import time
 import random
-from lcd import LCD
+from lcd import LCD, NUM_ROWS, ROW_LENGTH
 from news import get_headlines
 
 def main():
@@ -13,7 +13,7 @@ def main():
             for headline in headlines:
                 print(headline)
                 lcd.write('     {}'.format(headline))
-                time.sleep(3)
+                lcd.write(' ' * NUM_ROWS * ROW_LENGTH)
     except KeyboardInterrupt:
         lcd.clear()
 
